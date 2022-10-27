@@ -1,5 +1,5 @@
 describe("OrangeHRM page", function(){
-
+    let username = `Nvaeen${Math.floor(Math.random() * 9999)}`;
     it("login to orangeHRM", async function(){
         await browser.maximizeWindow();
         await browser.url('/');
@@ -41,7 +41,7 @@ describe("OrangeHRM page", function(){
         await (await $('//label[text()="Status"]//..//following-sibling::div //*[text()="Enabled"]')).click();
         await (await $('//input[@placeholder="Type for hints..."]')).setValue("Naveen");
         await (await $('//*[contains(text(),"Naveen")]')).click();
-        await (await $('//label[text()="Username"]//..//following-sibling::div/input')).setValue(`Nvaeen${Math.floor(Math.random() * 9999)}`);
+        await (await $('//label[text()="Username"]//..//following-sibling::div/input')).setValue(username);
         await (await $('//label[text()="Password"]//..//following-sibling::div/input')).setValue("Abcd@123");
         await (await $('//label[text()="Confirm Password"]//..//following-sibling::div/input')).setValue("Abcd@123");
         await browser.pause(5000);
@@ -53,7 +53,7 @@ describe("OrangeHRM page", function(){
     });
 
     it("Edit User and Delete User", async function(){
-        await (await $('//label[text()="Username"]//..//following-sibling::div/input')).setValue("Nvaeen001");
+        await (await $('//label[text()="Username"]//..//following-sibling::div/input')).setValue(username);
         await browser.pause(5000);
         await (await $('//button[@type="submit"]')).click();
         await browser.pause(10000);
@@ -64,7 +64,7 @@ describe("OrangeHRM page", function(){
         await browser.pause(5000);
         await (await $('//button[text()=" Save "]')).click();
         await browser.pause(5000);
-        await (await $('//label[text()="Username"]//..//following-sibling::div/input')).setValue("Nvaeen001");
+        await (await $('//label[text()="Username"]//..//following-sibling::div/input')).setValue(username);
         await browser.pause(5000);
         await (await $('//button[@type="submit"]')).click();
         await browser.pause(5000);
