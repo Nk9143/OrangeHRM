@@ -22,11 +22,11 @@ describe("OrangeHRM page", function(){
         await expect(await (await $('h6.orangehrm-main-title')).getText()).equals('Add Employee');
         await (await $('[name="firstName"]')).setValue(firstName);
         await (await $('[name="lastName"]')).setValue(lastName);
-        await browser.pause(5000);
+        await browser.pause(2000);
         await (await $('//button[@type="submit"]')).click();
         await (await $('div.orangehrm-edit-employee-name h6')).waitForDisplayed();
         await expect(await (await $('div.orangehrm-edit-employee-name h6')).isDisplayed()).equals(true);
-        await browser.pause(5000);
+        await browser.pause(1000);
     });
 
     it("Add User", async function(){
@@ -46,32 +46,31 @@ describe("OrangeHRM page", function(){
         await (await $('//label[text()="Confirm Password"]//..//following-sibling::div/input')).setValue("Abcd@123");
         await browser.pause(5000);
         await (await $('//button[text()=" Save "]')).click();
-        browser.pause(4000);
+        browser.pause(1000);
         await expect(await (await $('h5.oxd-table-filter-title')).getText()).equals("System Users");
-        browser.pause(4000);
+        browser.pause(2000);
 
     });
 
     it("Edit User and Delete User", async function(){
         await (await $('//label[text()="Username"]//..//following-sibling::div/input')).setValue(username);
-        await browser.pause(5000);
+        await browser.pause(1000);
         await (await $('//button[@type="submit"]')).click();
-        await browser.pause(10000);
+        await browser.pause(3000);
         await (await $('//i[@class="oxd-icon bi-pencil-fill"]//parent::button')).click();
-        await browser.pause(5000);
+        await browser.pause(2000);
         await (await $('//label[text()="User Role"]//..//following-sibling::div')).click();
         await (await $('//label[text()="User Role"]//..//following-sibling::div //*[text()="ESS"]')).click();
-        await browser.pause(5000);
+        await browser.pause(2000);
         await (await $('//button[text()=" Save "]')).click();
-        await browser.pause(5000);
+        await browser.pause(2000);
         await (await $('//label[text()="Username"]//..//following-sibling::div/input')).setValue(username);
-        await browser.pause(5000);
+        await browser.pause(2000);
         await (await $('//button[@type="submit"]')).click();
-        await browser.pause(5000);
+        await browser.pause(2000);
         await (await $('//i[@class="oxd-icon bi-trash"]')).click();
-        await browser.pause(5000);
+        await browser.pause(2000);
         await (await $('//button[text()=" Yes, Delete "]')).click();
-        await browser.pause(10000);
     });
 
 });
